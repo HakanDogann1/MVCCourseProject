@@ -1,0 +1,28 @@
+﻿@model EntityLayer.Concrete.About
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Hakkımızda Girişi</h2>
+            </div>
+            <form method="post" action="/About/AddAbout/">
+                <div class="modal-body">
+                    <label>Hakkımda</label>
+                    <input type="text" class="form-control" name="AboutDetails1" />
+                    <br />
+                    <label>Hakkımda</label>
+                    <input type="text" class="form-control" name="AboutDetails2" />
+                    <br />
+                    <label>Hakkımda</label>
+                    <input type="text" class="form-control" name="AboutImage1" />
+                    <br />
+                    <label>Hakkımda</label>
+                    <input type="text" class="form-control" name="AboutImage2" />
+                    <br />
+                    <button class="btn btn-outline-success">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

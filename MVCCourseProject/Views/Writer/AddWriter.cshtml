@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "AddWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Yazar Ekleme Sayfası</h1>
+<form method="post">
+
+    <label>Yazar Adı</label>
+    <input type="text" class="form-control" name="WriterName" />
+    <div style="color:red;">@Html.ValidationMessageFor(x => x.WriterName)</div>
+    <br />
+    <label>Yazar Soyadı</label>
+    <input type="text" class="form-control" name="WriterSurname" />
+    @Html.ValidationMessageFor(x => x.WriterSurname)
+    <br />
+    <label>Yazar Şifresi</label>
+    <input type="text" class="form-control" name="WriterPassword" />
+    <div style="color:red;">@Html.ValidationMessageFor(x => x.WriterPassword)</div>
+    <br />
+    <label>Yazar Görsel Linki</label>
+    <input type="text" class="form-control" name="WriterImage" />
+    @Html.ValidationMessageFor(x => x.WriterImage)
+    <br />
+    <label>Yazar Ünvan</label>
+    <input type="text" class="form-control" name="WriterTitle" />
+    @Html.ValidationMessageFor(x => x.WriterTitle)
+    <br />
+    <label>Yazar Hakkında</label>
+    <input type="text" class="form-control" name="WriterAbout" />
+    @Html.ValidationMessageFor(x => x.WriterAbout)
+    <br />
+    <button class="btn btn-outline-info">Kaydet</button>
+</form>
+

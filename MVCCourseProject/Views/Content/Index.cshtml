@@ -1,0 +1,40 @@
+﻿@model List<EntityLayer.Concrete.Content>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Değer</th>
+            <th>Tarih</th>
+            <th>Başlık</th>
+            <th>Yazar</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ContentID</td>
+                <td>@item.ContentValue</td>
+                <td>@item.ContentDate.ToShortDateString()</td>
+                <td>@item.HeadingID</td>
+                <td>@item.WriterID</td>
+                <td><a href="/Content/DeleteContent/@item.ContentID" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Content/UpdateContent/@item.ContentID" class="btn btn-outline-warning">Güncelle</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
+<br />
+<a href="/Content/AddContent/" class="btn btn-outline-success">Ekle</a>
+
+

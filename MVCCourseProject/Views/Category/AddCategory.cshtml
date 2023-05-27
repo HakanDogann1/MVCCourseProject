@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form role="form" method="post">
+    <div class="card-body">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Kategori Adı</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kategori Adı" name="CategoryName">
+        </div>
+        @Html.ValidationMessageFor(x => x.CategoryName)
+        <div class="form-group">
+            <label for="exampleInputEmail1">İçerik</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="İçerik" name="CategoryDescription">
+        </div>
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <div class="form-group">
+            <label>Durum</label>
+            <select class="form-control select2" style="width: 100%;" name="CategoryStatus">
+                <option selected="selected" value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        </div>
+    </div>
+    <!-- /.card-body -->
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Ekle</button>
+    </div>
+</form>
+
