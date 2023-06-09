@@ -34,8 +34,21 @@ namespace MVCCourseProject.Controllers
             aboutManager.TInsert(about);
             return RedirectToAction("Index","About");
         }
-
-        public ActionResult DeleteAbout(int id)
+		public ActionResult AktifAbout(int id)
+		{
+			var value = aboutManager.TGetById(id);
+            value.AboutStatus = true;
+            aboutManager.TUpdate(value);
+			return RedirectToAction("Index", "About");
+		}
+		public ActionResult PasifAbout(int id)
+		{
+			var value = aboutManager.TGetById(id);
+			value.AboutStatus = false;
+			aboutManager.TUpdate(value);
+			return RedirectToAction("Index", "About");
+		}
+		public ActionResult DeleteAbout(int id)
         {
             var value = aboutManager.TGetById(id);
             aboutManager.TDelete(value);

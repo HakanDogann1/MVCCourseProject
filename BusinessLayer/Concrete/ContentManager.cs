@@ -18,7 +18,6 @@ namespace BusinessLayer.Concrete
         {
             _contentDal = contentDal;
         }
-
         public void TDelete(Content entity)
         {
             _contentDal.Delete(entity);

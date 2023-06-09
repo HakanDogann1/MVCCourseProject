@@ -29,7 +29,17 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetById(id); 
         }
 
-        public List<Message> TGetFilterList(Expression<Func<Message, bool>> filter)
+		public List<Message> TGetByReadMessage()
+		{
+			return _messageDal.GetByReadMessage();
+		}
+
+		public List<Message> TGetByUnreadMessage()
+		{
+			return _messageDal.GetByUnreadMessage();
+		}
+
+		public List<Message> TGetFilterList(Expression<Func<Message, bool>> filter)
         {
             return _messageDal.GetFilterList(filter);
         }

@@ -1,0 +1,14 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewBag.Title = "WriterProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+
+@Html.TextBoxFor(x=>x.WriterName)<br />
+@Html.TextBoxFor(x=>x.WriterSurname)<br />
+@Html.TextBoxFor(x=>x.WriterMail)<br />
+@Html.TextBoxFor(x=>x.WriterAbout)
+
+

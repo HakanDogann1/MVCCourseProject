@@ -17,9 +17,10 @@ namespace MVCCourseProject.Controllers
         // GET: Message
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator validationRules = new MessageValidator();
+        bool read=false;
         public ActionResult Inbox()
         {
-            var values = messageManager.TGetFilterList(x => x.ReceiverMail == "admin@gmail.com");
+			var values = messageManager.TGetFilterList(x => x.ReceiverMail == "admin@gmail.com");
             return View(values);
         }
         public ActionResult SendBox()
@@ -27,10 +28,33 @@ namespace MVCCourseProject.Controllers
             var values = messageManager.TGetFilterList(x => x.SenderMail == "Admin@gmail.com");
             return View(values);
         }
-
-        public ActionResult GetInboxMessageDetails(int id)
+		public ActionResult Read()
+		{
+            var values = messageManager.TGetByReadMessage();
+			return View(values);
+		}
+		public ActionResult Unread()
+		{
+			var values = messageManager.TGetByUnreadMessage();
+            if(values != null)
+            {
+				ViewBag.Null = true;
+				return View(values);
+            }
+            else
+            {
+                ViewBag.Null = false;
+                return View();
+            }
+			
+		}
+		public ActionResult GetInboxMessageDetails(int id)
         {
+            
+            read = true;
             var values = messageManager.TGetById(id);
+            values.Read = true;
+            messageManager.TUpdate(values);
             return View(values);
         }
         public ActionResult GetSendboxMessageDetails(int id)

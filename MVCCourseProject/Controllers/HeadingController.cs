@@ -84,6 +84,11 @@ namespace MVCCourseProject.Controllers
             value.HeadingStatus = false;
             return RedirectToAction("Index");
         }
+        public ActionResult HeadingReport()
+        {
+            var values = headingManager.TGetList();
+            return View(values);
+        }
 
     }
 }

@@ -34,6 +34,8 @@ namespace MVCCourseProject.Controllers
             ViewBag.ContactIndex = context.Contacts.Count();
             ViewBag.Inbox = context.Messages.Where(x=>x.ReceiverMail=="Admin@gmail.com").Count();
             ViewBag.SendBox = context.Messages.Where(x => x.SenderMail == "Admin@gmail.com").Count();
+            ViewBag.Read=context.Messages.Where(x=>x.Read== true && x.ReceiverMail == "Admin@gmail.com").Count();
+            ViewBag.Unread = context.Messages.Where(x => x.Read == false && x.ReceiverMail == "Admin@gmail.com").Count();
             return PartialView();
         }
     }

@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMessageDal:IGenericDal<Message>
     {
+        List<Message> GetByReadMessage();
+        List<Message> GetByUnreadMessage();
     }
 }

@@ -18,6 +18,7 @@ namespace MVCCourseProject.Controllers
         CategoryValidator validator = new CategoryValidator();
         // GET: Category
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        [Authorize]
         public ActionResult Index()
         {
             var values = categoryManager.TGetList();
